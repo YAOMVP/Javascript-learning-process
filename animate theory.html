@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate theory</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // animate theory must add position then can move
+        var div = document.querySelector('div');
+        //setInterval
+        //Need to stop offsetLeft
+        var timer = setInterval(function() {
+            if (div.offsetLeft >= 100) {
+                clearInterval(timer);
+            }
+            div.style.left = div.offsetLeft + 5 + 'px';
+        }, 30);
+    </script>
+</body>
+
+</html>
