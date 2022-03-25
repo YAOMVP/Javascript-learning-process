@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jump to another link</title>
+</head>
+
+<body>
+    <button>click</button>
+    <div></div>
+    <script>
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        var timer = 3;
+
+        btn.addEventListener('click', function() {
+
+            setInterval(function() {
+                if (timer == 0) {
+                    location.href = 'http://www.baidu.com';
+                } else {
+                    div.innerHTML = '' + timer + 's will go to the new page';
+                    timer--
+                };
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
