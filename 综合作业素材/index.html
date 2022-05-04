@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>code</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <!-- 4. box核心内容区域开始 -->
+    <div class="box w">
+        <div class="box-hd">
+            <h3>精品推荐</h3>
+            <a href="#">查看全部</a>
+        </div>
+        <div class="box-bd">
+            <ul class="clearfix">
+
+                <script>
+                    let data = [{
+                        src: 'images/course01.png',
+                        title: 'Think PHP 5.0 ',
+                        num: 1125
+                    }, {
+                        src: 'images/course02.png',
+                        title: 'Android ',
+                        num: 357
+                    }, {
+                        src: 'images/course03.png',
+                        title: 'Angular2 ',
+                        num: 22250
+                    }, {
+                        src: 'images/course04.png',
+                        title: 'Android APP ',
+                        num: 389
+                    }, {
+                        src: 'images/course05.png',
+                        title: 'UGUI ',
+                        num: 124
+                    }, {
+                        src: 'images/course06.png',
+                        title: 'Kami2',
+                        num: 432
+                    }, {
+                        src: 'images/course07.png',
+                        title: 'UNITY ',
+                        num: 888
+                    }, {
+                        src: 'images/course08.png',
+                        title: 'Cocos ',
+                        num: 590
+                    }, ]
+
+                    //根据数据的个数来渲染
+                    // console.log(data.length);
+                    for (let i = 0; i < data.length; i++) {
+                        document.write(`
+                        <li>
+                            <img src=${data[i].src} alt="">
+                            <h4>
+                                ${data[i].title}
+                            </h4>
+                            <div class="info">
+                                <span>高级</span> • <span>${data[i].num}</span>人在学习
+                            </div>
+                        </li>
+                        `)
+                    }
+                </script>
+
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
