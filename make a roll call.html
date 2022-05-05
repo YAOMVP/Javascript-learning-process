@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>make a roll call</title>
+    <style>
+        div {
+            display: inline-block;
+            width: 150px;
+            height: 30px;
+            border: 1px solid pink;
+            vertical-align: middle;
+            line-height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    抽中的选手:
+    <div></div>
+    <script>
+        let box = document.querySelector('div')
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        //声明数组
+        let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操', 'Pink']
+
+        //得到的是索引号
+        let random = getRandom(0, arr.length - 1)
+            // document.write(arr[random])
+
+        //写入标签内部
+        box.innerHTML = arr[random]
+
+        //删除点过的名字
+        arr.splice(random, 1)
+    </script>
+</body>
+
+</html>
