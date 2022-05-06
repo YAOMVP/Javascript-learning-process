@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random questions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        .box {
+            width: 600px;
+            margin: 50px auto;
+            display: flex;
+            font-size: 25px;
+            line-height: 40px;
+        }
+        
+        .qs {
+            width: 450px;
+            height: 40px;
+            color: red;
+        }
+        
+        .btns {
+            text-align: center;
+        }
+        
+        .btns button {
+            width: 120px;
+            height: 35px;
+            margin: 0 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>随机点名</h2>
+    <div class="box">
+        <span>名字是：</span>
+        <div class="qs">这里显示姓名</div>
+    </div>
+    <div class="btns">
+        <button class="start">开始</button>
+        <button class="end">结束</button>
+    </div>
+    <script>
+        let arr = ['马超', '黄忠', '赵云', '关羽', '张飞']
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+
+        //1.获取两个按钮 一个div盒子
+        let start = document.querySelector('.start')
+        let end = document.querySelector('.end')
+        let qs = document.querySelector('.qs')
+        let timer = 0 //开始按钮用，结束按钮用 所以需要声明一个全局变量
+        let random = 0
+
+        //2.给开始按钮注册事件
+        start.addEventListener('click', function() {
+            //随机抽取 快速不断的抽取 间歇函数定时器
+            timer = setInterval(function() {
+                    random = getRandom(0, arr.length - 1)
+                    qs.innerHTML = arr[random]
+                }, 25)
+                //如果到了最后一个 就禁用两个按钮
+            if (arr.length === 1) {
+                start.disabled = end.disabled = true
+            }
+        })
+
+        //3.给结束按钮注册事件 本质是停止定时器
+        end.addEventListener('click', function() {
+            clearInterval(timer)
+                //删除数组元素
+            arr.splice(random, 1) //😄random时开始按钮的局部变量，别忘了改成全局变量，所以结束按钮也可以使用了
+        })
+    </script>
+</body>
+
+</html>
