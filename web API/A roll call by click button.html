@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A roll call by click button</title>
+    <style>
+        div {
+            width: 200px;
+            height: 40px;
+            border: 1px solid pink;
+            line-height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button>点击</button>
+
+    <script>
+        let box = document.querySelector('div')
+        let btn = document.querySelector('button')
+
+        //随机函数 c+v
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        //声明数组
+        let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操', 'Pink']
+
+        // 开始点击事件
+        btn.addEventListener('click', function() {
+            let random = getRandom(0, arr.length - 1)
+                // console.log(random);        得到的是索引号
+                // console.log(arr[random]);   得到的是值
+
+            //写入标签内部
+            box.innerHTML = arr[random]
+
+            //删除数组里边的元素
+            arr.splice(random, 1)
+
+            //如果数组没有了 长度为0 就要禁用按钮
+            if (arr.length === 0) {
+                btn.disabled = true
+                btn.innerHTML = '已经抽完了'
+            }
+        })
+    </script>
+</body>
+
+</html>
