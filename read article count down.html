@@ -19,7 +19,9 @@
     <script>
         let btn = document.querySelector('button')
 
+        //倒计时从6开始
         let i = 6
+            // 开始定时器
         let timer = setInterval(function() {
             i--
             btn.innerHTML = `我已经阅读用户协议(${i})`
