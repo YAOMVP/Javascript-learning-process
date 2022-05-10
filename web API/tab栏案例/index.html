@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .wrapper {
+            width: 1000px;
+            height: 475px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+        
+        .tab {
+            border: 1px solid #ddd;
+            border-bottom: 0;
+            height: 36px;
+            width: 320px;
+        }
+        
+        .tab li {
+            position: relative;
+            float: left;
+            width: 80px;
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+            cursor: pointer;
+            border-top: 4px solid #fff;
+        }
+        
+        .tab span {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            background: #ddd;
+            width: 1px;
+            height: 14px;
+            overflow: hidden;
+        }
+        
+        .products {
+            width: 1002px;
+            border: 1px solid #ddd;
+            height: 476px;
+        }
+        
+        .products .main {
+            float: left;
+            display: none;
+        }
+        
+        .products .main.active {
+            display: block;
+        }
+        
+        .tab li.active {
+            border-color: red;
+            border-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul class="tab">
+            <li class="tab-item active">国际大牌<span>◆</span></li>
+            <li class="tab-item">国妆名牌<span>◆</span></li>
+            <li class="tab-item">清洁用品<span>◆</span></li>
+            <li class="tab-item">男士精品</li>
+        </ul>
+        <div class="products">
+            <div class="main active">
+                <a href="###"><img src="imgs/guojidapai.jpg" alt="" /></a>
+            </div>
+            <div class="main">
+                <a href="###"><img src="imgs/guozhuangmingpin.jpg" alt="" /></a>
+            </div>
+            <div class="main">
+                <a href="###"><img src="imgs/qingjieyongpin.jpg" alt="" /></a>
+            </div>
+            <div class="main">
+                <a href="###"><img src="imgs/nanshijingpin.jpg" alt="" /></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //获取元素 
+        let lis = document.querySelectorAll('.tab .tab-item')
+        let divs = document.querySelectorAll('.products .main')
+
+        //4个li添加点击事件
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].addEventListener('click', function() {
+                //以前的active类移除 😍(.tab-item.active 这两个是平级的 不要分开写 父子的才分开写)
+                document.querySelector('.tab .tab-item.active').classList.remove('active')
+                    //当前的元素添加
+                this.classList.add('active')
+
+                //底部对应模块显示与隐藏 一定要写到点击事件的里边
+                document.querySelector('.products .main.active').classList.remove('active')
+                    //div对应序号的加上效果 😍divs[i]与lis[i]是对应的
+                divs[i].classList.add('active')
+            })
+        }
+    </script>
+
+</body>
+
+</html>
