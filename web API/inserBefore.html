@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insertBefore</title>
+</head>
+
+<body>
+    <ul>
+        <li>da mao</li>
+
+        <li>er mao</li>
+    </ul>
+
+    <script>
+        //获取元素
+        let ul = document.querySelector('ul')
+
+        //获取er mao   ul.children[1]
+
+
+
+        //创建节点标签
+        let li = document.createElement('li')
+            //输入内容
+        li.innerHTML = 'xiao ming'
+            //追加节点  父元素.insertBefore(插入的是谁，放到哪个元素的前边)
+        ul.insertBefore(li, ul.children[1])
+    </script>
+</body>
+
+</html>
