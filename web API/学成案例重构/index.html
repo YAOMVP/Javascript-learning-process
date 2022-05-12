@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>在线首页</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <!-- 4. box核心内容区域开始 -->
+    <div class="box w">
+        <div class="box-hd">
+            <h3>精品推荐</h3>
+            <a href="#">查看全部</a>
+        </div>
+        <div class="box-bd">
+            <ul class="clearfix">
+                <li>
+                    <img src="./images/course01.png" alt="">
+                    <h4>
+                        Think PHP 5.0 博客系统实战项目演练
+                    </h4>
+                    <div class="info">
+                        <span>高级</span> • <span> 1125</span>人在学习
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        let data = [{
+            src: 'images/course01.png',
+            title: 'Think PHP 5.0 博客系统实战项目演练',
+            num: 1125
+        }, {
+            src: 'images/course02.png',
+            title: 'Android 网络动态图片加载实战',
+            num: 357
+        }, {
+            src: 'images/course03.png',
+            title: 'Angular2 大前端商城实战项目演练',
+            num: 22250
+        }, {
+            src: 'images/course04.png',
+            title: 'Android APP 实战项目演练',
+            num: 389
+        }, {
+            src: 'images/course05.png',
+            title: 'UGUI 源码深度分析案例',
+            num: 124
+        }, {
+            src: 'images/course06.png',
+            title: 'Kami2首页界面切换效果实战演练',
+            num: 432
+        }, {
+            src: 'images/course07.png',
+            title: 'UNITY 从入门到精通实战案例',
+            num: 888
+        }, {
+            src: 'images/course08.png',
+            title: '我会变，你呢？',
+            num: 590
+        }, {
+            src: 'images/course08.png',
+            title: '我会变，你呢？',
+            num: 590
+        }]
+
+
+        let ul = document.querySelector('ul')
+            //1.小li很多 和数据有关系，所以要循环数据
+        for (let i = 0; i < data.length; i++) {
+            //2.创建空li
+            let li = document.createElement('li')
+
+            //4.追加数据
+            li.innerHTML = `
+            <img src=${data[i].src} alt="">
+                    <h4>
+                        ${data[i].title}
+                    </h4>
+                    <div class="info">
+                        <span>高级</span> • <span> ${data[i].num}</span>人在学习
+                    </div>
+            `
+
+            //3.追加给ul 父元素.appendChild(子元素)
+            //😉(li)不要加上引号！！！！，因为是从上边拿来的变量
+            ul.appendChild(li)
+        }
+    </script>
+</body>
+
+</html>
