@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createElement</title>
+</head>
+
+<body>
+    <ul>
+        <li>lao da</li>
+    </ul>
+
+    <script>
+        let ul = document.querySelector('ul')
+
+        // let div = document.createElement('div')
+        // div.className = 'current'    就是(<div class = "current"> </div>)
+
+        //1.创建新的标签节点 createElement
+        let li = document.createElement('li')
+            //2.给li写内容
+        li.innerHTML = 'xiao li'
+
+        //追加xiao li在 lao da的后边 appendChild
+        ul.appendChild(li)
+    </script>
+</body>
+
+</html>
