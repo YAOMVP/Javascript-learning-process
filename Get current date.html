@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get current date</title>
+    <style>
+        div {
+            width: 400px;
+            height: 40px;
+            background-color: pink;
+            line-height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        //😊优化版
+        //1.声明div放在了前边  2.解决一刷新闪白的效果
+
+        let arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+        let div = document.querySelector('div')
+
+
+        //就是把function先提出来，然后起个名字 getTime，最后在一开始调用一下函数就ok了
+        //先调用一次就不会有刚开始闪的效果了
+        getTime()
+        setInterval(getTime, 1000)
+
+        function getTime() {
+            //实例化事件对象
+            let date = new Date()
+
+            let year = date.getFullYear()
+            let month = date.getMonth() + 1
+            let date1 = date.getDate()
+
+            let hour = date.getHours()
+            let min = date.getMinutes()
+            let sec = date.getSeconds()
+            let day = date.getDay()
+
+
+            div.innerHTML = `今天是${year}年${month}月${date1}日 ${hour}时${min}分${sec}秒 ${arr[day]}`
+        }
+
+
+
+        /*     let arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+
+
+        setInterval(function() {
+            //实例化事件对象
+            let date = new Date()
+
+            let year = date.getFullYear()
+            let month = date.getMonth() + 1
+            let date1 = date.getDate()
+
+            let hour = date.getHours()
+            let min = date.getMinutes()
+            let sec = date.getSeconds()
+            let day = date.getDay()
+
+            let div = document.querySelector('div')
+
+            div.innerHTML = `今天是${year}年${month}月${date1}日 ${hour}时${min}分${sec}秒 ${arr[day]}`
+        }, 1000)
+
+
+ */
+    </script>
+</body>
+
+</html>
