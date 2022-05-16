@@ -234,6 +234,7 @@
 
         //2.点击button之后判断 输入内容不能为空
         send.addEventListener('click', function() {
+
             //怕用户输入两个空格也可以通过 trim()去除首位的空格
             if (textarea.value.trim() === '') {
                 //将表单的value设置为空的字符串 光标不占地方了输入完了，返回重新开始
@@ -280,9 +281,14 @@
             //5.输入完的内容清空 以便下一次书写 红色统计字数为0
             textarea.value = ''
             useCount.innerHTML = 0
+        })
 
-
-
+        textarea.addEventListener('keyup', function(e) {
+            //如何知道按下的是回车键呢 事件对象e里边有key属性
+            if (e.key === 'Enter') {
+                //敲回车 自动触发点击按钮 意思是调用click点击事件,是个方法  （有的事件有用有的没用 但是点击按钮有用）
+                send.click()
+            }
         })
     </script>
 
