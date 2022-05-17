@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+    <h1>新增学员</h1>
+    <div class="info">
+        姓名：<input type="text" class="uname"> 年龄：
+        <input type="text" class="age"> 性别: <select name="gender" id="" class="gender">
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select> 薪资：
+        <input type="text" class="salary"> 就业城市：
+        <select name="city" id="" class="city">
+      <option value="北京">北京</option>
+      <option value="上海">上海</option>
+      <option value="广州">广州</option>
+      <option value="深圳">深圳</option>
+      <option value="曹县">曹县</option>
+
+    </select>
+        <button class="add">录入</button>
+    </div>
+
+    <h1>就业榜</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>薪资</th>
+                <th>就业城市</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--  <tr>
+                <td>1001</td>
+                <td>欧阳霸天</td>
+                <td>19</td>
+                <td>男</td>
+
+                <td>15000</td>
+                <td>上海</td>
+                <td>
+                    <a href="javascript:">删除</a>
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+    <script>
+        //  1. 准备好数据后端的数据
+        let arr = [{
+            stuId: 1001,
+            uname: '欧阳霸天',
+            age: 19,
+            gender: '男',
+            salary: '20000',
+            city: '上海'
+        }, {
+            stuId: 1002,
+            uname: '令狐霸天',
+            age: 29,
+            gender: '男',
+            salary: '30000',
+            city: '北京'
+        }, {
+            stuId: 1003,
+            uname: '诸葛霸天',
+            age: 39,
+            gender: '男',
+            salary: '2000',
+            city: '北京'
+        }, ]
+
+
+        //渲染原有的数据到页面中  添加需要渲染 删除需要渲染 多次渲染封装成函数就ok了
+
+        //渲染函数
+        let tbody = document.querySelector('tbody')
+
+        //😊注意：获取各个表单元素 知道用户输入了什么  获取表单才能拿到里边的值
+        let uname = document.querySelector('.uname')
+        let age = document.querySelector('.age')
+        let gender = document.querySelector('.gender')
+        let salary = document.querySelector('.salary')
+        let city = document.querySelector('.city')
+
+        function render() {
+            //4.先干掉原先的数据 tbody里的tr都没有,干掉完成之后再去渲染最新的，底下的for就可以拿到数组最新的长度
+            tbody.innerHTML = ''
+
+            //根据数据的条数增加tr 先看看几条数据 就创建几个tr
+            for (let i = 0; i < arr.length; i++) {
+                //1.创建tr  document.createElement('标签名')
+                let tr = document.createElement('tr')
+                    //2.tr里边放内容
+                tr.innerHTML = `
+              <td>${arr[i].stuId}</td>
+                <td>${arr[i].uname}</td>
+                <td>${arr[i].age}</td>
+                <td>${arr[i].gender}</td>
+
+                <td>${arr[i].salary}</td>
+                <td>${arr[i].city}</td>
+                <td>
+                    <a href="javascript:" id="${i}">删除</a>
+                </td>
+              `
+                    //6.1😊 最后一步删除操作接上上边的id： 生成li的时候 顺便有个id，到时候一点击删除的那个按钮 对应id的索引号也能拿到
+                    //3.将tr追加给tbody  放到后边就可以 父元素.appendChild(插入的元素)
+                tbody.appendChild(tr)
+
+                //4.1 只要录入完成后 就复原所有的表单数据
+                uname.value = age.value = salary.value = ''
+                gender.value = '男'
+                city.value = '北京'
+            }
+        }
+        //😊别忘了 调用函数
+        render()
+
+
+        //点击 录入按钮 添加数据
+        let add = document.querySelector('.add')
+
+        add.addEventListener('click', function() {
+            //先获得表单里的值往数组添加数据用push()方法  然后把值换成真是数据
+            arr.push({
+                    //ID就是数组元素的最后一个+1 数组元素的最后一个就是arr.length 索引号是  arr[arr.length-1]
+                    stuId: arr[arr.length - 1].stuId + 1,
+                    uname: uname.value,
+                    age: age.value,
+                    gender: gender.value,
+                    salary: salary.value,
+                    city: city.value
+                })
+                // console.log(arr);
+                //4.3重新渲染函数  一点击录入就渲染函数
+            render()
+        })
+
+        //删除操作 删除的也是数组里的数据 用事件委托的方法 
+        //(问：什么时候用事件委托呢？  😊答：大批量删除操作的时候，需要大规模挨个添加for循环 点击遍历的 都适合用事件委托)
+        tbody.addEventListener('click', function(e) {
+            //点击了a 也就是删除按钮 才会进行删除  如何知道点击a了呢？                    😊答：e.target.tagName 会得到 A 就指的是a连接
+            if (e.target.tagName === 'A') {
+                //6.删除操作 删除的是数组里的数据， 不是tr
+                //可通过e.target.id 可以得到小序号
+                arr.splice(e.target.id, 1)
+                    //重新渲染函数
+                render()
+            }
+        })
+    </script>
+</body>
+
+</html>
