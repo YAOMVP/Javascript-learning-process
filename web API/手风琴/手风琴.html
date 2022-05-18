@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>手风琴</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            width: 1200px;
+            height: 400px;
+            margin: 50px auto;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+        
+        div li {
+            width: 240px;
+            height: 400px;
+            float: left;
+            transition: all 500ms;
+        }
+        
+        div ul {
+            width: 1200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="./images/1.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/2.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/3.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/4.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/5.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    //😊同一组元素，我们需要某一个元素实现某种样式，就要用到循环的排他思想😊
+
+    //1.li 默认宽度为240px 
+    //2.鼠标经过mouseenter 😊排他思想 其余的li是100px 当前的li是800px
+    //3.鼠标离开mouseleave  所有的li复原为240px
+
+    let lis = document.querySelectorAll('li')
+
+    //给所有的li都绑定事件
+    for (let i = 0; i < lis.length; i++) {
+        lis[i].addEventListener('mouseenter', function() {
+                //排他思想   先利用for循环因为先排他有很多li所以要循环
+                for (let j = 0; j < lis.length; j++) {
+                    //  把其他的其余的li是100px
+                    lis[j].style.width = '100px'
+                } //当前的li是800px
+                this.style.width = '800px'
+            })
+            //鼠标离开 mouseleave
+        lis[i].addEventListener('mouseleave', function() {
+            // 所有的li复原为240px
+            for (let j = 0; j < lis.length; j++) {
+                lis[j].style.width = '240px'
+            }
+        })
+    }
+</script>
+
+</html>
