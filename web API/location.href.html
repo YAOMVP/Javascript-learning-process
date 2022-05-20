@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location href</title>
+    <style>
+        span {
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="http:www.baidu.com">支付成功 <span>5</span>秒跳转</a>
+    <script>
+        let a = document.querySelector('a')
+        let num = 5
+
+        let timer = setInterval(function() {
+            // 😉一定要记住num--
+            num--
+            a.innerHTML = `支付成功 <span>${num}</span>秒跳转`
+
+            //关闭定时器 到了0秒不走了
+            if (num === 0) {
+                clearInterval(timer)
+                    //跳转到github
+                location.href = 'https://github.com/YAOMVP'
+            }
+        }, 1000)
+    </script>
+</body>
+
+</html>
