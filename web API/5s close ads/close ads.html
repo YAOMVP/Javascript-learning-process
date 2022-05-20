@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5s close ads</title>
+    <style>
+        img {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/ad.png" alt="">
+    <script>
+        let img = document.querySelector('img')
+
+        let timer = setTimeout(function() {
+            img.style.display = 'none'
+        }, 5000)
+
+        /* img.addEventListener ('click',function(){
+            clearTimeout(timer)
+        }) */
+    </script>
+</body>
+
+</html>
