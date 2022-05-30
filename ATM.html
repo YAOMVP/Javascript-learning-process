@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  3.余额里有100元
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            点击1.存款 输入存入的金额save 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            点击2 取钱 输入withdraw 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            退出关闭就可以
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        */
+        /* 
+         1.弹出界面 蹦出提款机
+         2. 已知余额为100元 alert弹出
+         3. 存款操作 save = save+balance
+         4.取款操作 withdraw = withdraw+balance
+        5. 点击4 退出 就可以结束，关闭界面
+        */
+
+        //  let machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+
+
+        let save = 0;
+        let withdraw = 0;
+        let balance = 100
+        let num = 0
+
+
+        /*         if (machine === 1) {
+                    save = prompt('输入钱数');
+                    machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+                } else if (machine === 2) {
+                    withdraw = prompt('取多少钱');
+                    machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+                } else if (machine === 3) {
+                    balance = `balance + ${save} - ${withdraw}`
+                } else if (machine === 4) {
+                    alert('让你输入1 2 3 4呢');
+                    machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+                } else {
+                    alert('让你输入1 2 3 4呢');
+                    machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+                } */
+
+
+
+
+
+
+
+
+        /* switch (machine) {
+            case 1:
+                save = +prompt('存多少钱');
+                machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+            case 3:
+                num = `${save}` + balance - `${withdraw}`
+                alert(num)
+                break;
+
+
+            case 2:
+                withdraw = prompt('取多少钱');
+                machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+            case 3:
+                num = `${save}` + balance - `${withdraw}`
+                alert(num)
+                break;
+
+
+
+            case 3:
+                num = `${save}` + balance - `${withdraw}`
+                alert(num)
+                machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+                break;
+            case 4:
+                break;
+            default:
+                alert('让你输入1 2 3 4呢');
+                machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+
+        }
+ */
+
+
+        /* switch (machine) {
+            case 1:
+                save = +prompt('存多少钱');
+                machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+            case 3:
+                num = `+${save}` + balance - `${withdraw}`
+                alert(num)
+                break;
+
+
+            case 2:
+                withdraw = prompt('取多少钱');
+                machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+            case 3:
+                num = `${save}` + balance - `${withdraw}`
+                alert(num)
+                break;
+
+
+
+            case 3:
+                num = `${save}` + balance - `${withdraw}`
+                alert(num)
+                machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+                break;
+            case 4:
+                break;
+            default:
+                alert('让你输入1 2 3 4呢');
+                machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+
+        }  */
+        let machine;
+        let ifLogin = true;
+        while (ifLogin) {
+            machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+            switch (machine) {
+                case 1:
+                    save = +prompt('存多少钱');
+                    balance += save;
+                    alert("存款成功，您现在的余额是: " + balance);
+                    break;
+                case 2:
+                    withdraw = +prompt('取多少钱');
+                    num = balance - `${withdraw}`
+                    if (num < 0) {
+                        alert('余额成负数的了，取款失败');
+                    } else {
+                        balance -= withdraw;
+                        alert("取款成功，您现在的余额是: " + balance);
+                    }
+                    break;
+                case 3:
+                    alert("您的余额是： " + balance + " 元。");
+                    break;
+                case 4:
+                    ifLogin = false;
+                    alert("您已成功退出");
+                    break;
+                default:
+                    alert('让你输入1 2 3 4呢');
+            }
+            // if (machine === 4) {
+            //     break;
+            // }
+        }
+
+
+
+        /*   switch (machine) {
+               case 1:
+                   save = +prompt('存多少钱');
+                   machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+                   // case 3:
+                   //     num = `+${save}` + balance - `${withdraw}`
+                   //     alert(num)
+                   break;
+
+
+               case 2:
+                   withdraw = +prompt('取多少钱');
+                   machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+                   // case 3:
+                   //     num = `${save}` + balance - `${withdraw}`
+                   //     if (num < 0) {
+                   //         alert('余额成负数的了');
+                   //         break
+                   //     }
+                   //     alert(num)
+                   break;
+
+
+
+               case 3:
+                   num = `${save}` + balance - `${withdraw}`
+                   alert(num)
+                   machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+                   break;
+               case 4:
+                   break;
+               default:
+                   alert('让你输入1 2 3 4呢');
+
+                   do {
+                       machine = +prompt('1.存款 2.取款 3.查看余额 4.退出');
+                       alert('让你输入1 2 3 4呢');
+                   }
+                   while (machine > 4)*/
+    </script>
+</body>
+
+</html>
