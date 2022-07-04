@@ -10,22 +10,11 @@
 
 <body>
     <script>
-        function test() {
-            var a = "3";
-            var b = "8";
-
-            /***********Do not change the code above 👆*******/
-            //Write your code on lines 7 - 9:
-            var temp = a;
-            a = b;
-            b = temp;
-
-            /***********Do not change the code below 👇*******/
-
-            console.log("a is " + a);
-            console.log("b is " + b);
-        }
-        test();
+        let type = prompt("What is your name?");
+        let value = `${type}`;
+        let newValue = value[0].toUpperCase();
+        let rest = value.slice(1);
+        alert(`welcome ${newValue}${rest}`);
     </script>
 </body>
 
