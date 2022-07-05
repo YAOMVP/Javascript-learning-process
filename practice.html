@@ -10,11 +10,12 @@
 
 <body>
     <script>
-        let type = prompt("What is your name?");
-        let value = `${type}`;
-        let newValue = value[0].toUpperCase();
-        let rest = value.slice(1);
-        alert(`welcome ${newValue}${rest}`);
+        let userName = prompt("What is your name?");
+        // let value = `${type}`;
+        // let newValue = value[0].toUpperCase();
+        // let rest = value.slice(1);
+        // alert(`welcome ${newValue}${rest}`);
+        alert("Thank you, " + userName.slice(0, 1).toUpperCase() + userName.slice(1).toLowerCase() + ".")
     </script>
 </body>
 
