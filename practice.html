@@ -10,12 +10,9 @@
 
 <body>
     <script>
-        let userName = prompt("What is your name?");
-        // let value = `${type}`;
-        // let newValue = value[0].toUpperCase();
-        // let rest = value.slice(1);
-        // alert(`welcome ${newValue}${rest}`);
-        alert("Thank you, " + userName.slice(0, 1).toUpperCase() + userName.slice(1).toLowerCase() + ".")
+        let dogAge = +prompt("How old is your dog?");
+        let humanAge = (dogAge - 2) * 4 + 21;
+        alert(`Your dog is ${humanAge} years old in human years`);
     </script>
 </body>
 
