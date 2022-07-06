@@ -29,7 +29,11 @@
             return n;
         }
         getRandomNumber();
-        alert(`${person1} and ${person2} have ${n}% chance to fall in love. `);
+        if (n >= 70) {
+            alert(`${person1} and ${person2} have ${n}% Brilliant. `);
+        } else {
+            alert(`${person1} and ${person2} have ${n}% chance to fall in love. Take your time!!!!!! `);
+        }
     </script>
 </body>
 
