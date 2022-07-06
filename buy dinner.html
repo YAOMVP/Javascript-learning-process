@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let names = ["Olivia", "cc", "gu", "zf", "lb"];
+
+        function whosPaying(name) {
+            return Math.floor(Math.random() * names.length);
+        }
+        let n = whosPaying(names);
+        console.log(n);
+        document.write(names[n]);
+
+
+
+
+        let namess = ["Olivia", "cc", "gu", "zf", "lb"];
+        let list = Math.floor(Math.random() * namess.length);
+        console.log(list);
+
+        function whosPayings(name) {
+            return `${name[list]} buy dinner`;
+        }
+        let nn = whosPayings(namess);
+        console.log(nn);
+    </script>
+</body>
+
+</html>
