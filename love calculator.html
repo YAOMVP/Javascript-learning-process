@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let person1 = prompt("Type a name");
+        let person2 = prompt("Type another name");
+        let n = 0;
+
+        function name(person) {
+            let person3 = person.slice(0, 1).toUpperCase() + person.slice(1).toLowerCase();
+            return person3;
+        }
+        person1 = name(person1);
+        person2 = name(person2);
+
+
+        function getRandomNumber() {
+            n = Math.random();
+            n = n * 100;
+            n = Math.floor(n) + 1;
+            return n;
+        }
+        getRandomNumber();
+        alert(`${person1} and ${person2} have ${n}% chance to fall in love. `);
+    </script>
+</body>
+
+</html>
