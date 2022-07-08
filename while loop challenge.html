@@ -10,23 +10,44 @@
 
 <body>
     <script>
-        let i = 100;
+        // let i = 100;
 
-        function mineBottles() {
-            while (i >= 2) {
-                document.write(`${i} bottles of beer on the wall,${i} bottles of beer. Take 1 down, pass it around, ${i-1} bottles of beer on the wall.</br> `);
-                i--;
-                if (i === 1) {
-                    document.write(`${i} bottle of beer on the wall, ${i} bottle of beer. Take 1 down, pass it around, no bottles of beer on the wall.</br>`)
-                    i--;
-                }
-                if (i === 0) {
-                    document.write(`No more bottles of beer on the wall,no more bottles of beer. Take 1 down, pass it around, no more bottles of beer on the wall.</br> `)
+        // function mineBottles() {
+        //     while (i >= 2) {
+        //         document.write(`${i} bottles of beer on the wall,${i} bottles of beer. Take 1 down, pass it around, ${i-1} bottles of beer on the wall.</br> `);
+        //         i--;
+        //         if (i === 1) {
+        //             document.write(`${i} bottle of beer on the wall, ${i} bottle of beer. Take 1 down, pass it around, no bottles of beer on the wall.</br>`)
+        //             i--;
+        //         }
+        //         if (i === 0) {
+        //             document.write(`No more bottles of beer on the wall,no more bottles of beer. Take 1 down, pass it around, no more bottles of beer on the wall.</br> `)
+        //         }
+        //     }
+
+        // }
+        // mineBottles();
+
+
+        // fibonacciGenerator
+        let array = [];
+
+        function fibonacciGenerator(n) {
+            if (n === 1) {
+                array.push(0);
+            }
+            if (n === 2) {
+                array.push(0, 1)
+            }
+            if (n > 2) {
+                array.push(0, 1);
+                for (let i = 2; i < n; i++) {
+                    array[i] = array[i - 1] + array[i - 2];
                 }
             }
-
         }
-        mineBottles();
+        fibonacciGenerator(5);
+        console.log(array);
     </script>
 </body>
 
