@@ -38,12 +38,14 @@ section {
 
 .button {
     font-size: 50px;
-    /* background-color: #4ECCA3; */
+    background-color: #393E46;
+    color: #EEE;
     border-style: none;
+    cursor: pointer;
 }
 
 .button:hover {
-    background-color: #4ECCA3;
+    color: #4ECCA3;
 }
 
 footer {
