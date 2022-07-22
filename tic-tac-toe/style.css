@@ -57,6 +57,16 @@
     font-size: 80px;
 }
 
+.playero {
+    font-size: 40px;
+    color: #498afb;
+}
+
+.playerx {
+    font-size: 40px;
+    color: #09c372;
+}
+
 .controls {
     display: flex;
     flex-direction: row;
