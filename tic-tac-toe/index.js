@@ -1,5 +1,6 @@
 //Put the tiles in a array.
 // const tiles = Array.from(document.querySelectorAll(".tile"));
+let background = document.querySelector(".background");
 const tiles = document.querySelectorAll(".tile");
 const display = document.querySelector(".display");
 const playerDisplay = document.querySelector(".display-player");
@@ -17,7 +18,8 @@ let winningCondition = [
     [2, 4, 6]
 ];
 let clickNumerber = 0;
-let newArray = [];
+
+
 // let winningConditionIndex = [];
 
 //😊 startGame function:check all of the tile is empty or not, if all is clear then the user can start the game.
@@ -30,28 +32,47 @@ function startGame(index) {
 }
 
 
+
 //😊 Click event.
 for (let i = 0; i < tiles.length; i++) {
     tiles[i].addEventListener("click", function() {
-        // console.log(i);  Get the index
+        // console.log(i);
+        // Get the index
         let index = i;
         if (startGame(index)) {
-            this.innerHTML = getPlayer();
-            this.classList.add(`player${this.innerHTML}`);
-            changePlayer();
-            getValidatePlayer(index);
-            getTheWinner(index);
-            clickNumerber++;
+            if (display.innerHTML === "player X's win!" || display.innerHTML === "player O's win!") {
+                tiles[index].innerHTML === "   ";
+                startGame(index); //false;
+            } else {
+                this.innerHTML = getPlayer();
+                this.classList.add(`player${this.innerHTML}`);
+                changePlayer();
+                getValidatePlayer(index);
+                getTheWinner(index);
+                checkClickNumber();
+            }
 
 
 
         } else {
 
         }
-
     })
 }
 
+resetButton.addEventListener("click", function() {
+    location.reload();
+});
+
+
+function checkClickNumber() {
+    clickNumerber++;
+    if (clickNumerber === 9 && display.innerHTML !== "player X's win!") {
+        display.innerHTML = "";
+        display.innerHTML = "TIE!!!!!!";
+        clickNumerber = 0;
+    }
+}
 
 //😊1.Everytime playerX needs to start first.
 //2.The result is odd return "X" otherwise return "O";
@@ -177,9 +198,12 @@ function getTheWinner(index) {
         if (winningCondition[0][0] === "X" && winningCondition[0][1] === "X" && winningCondition[0][2] === "X") {
             display.innerHTML = "";
             display.innerHTML = "player X's win!";
+            background.classList.add("win");
         } else if (winningCondition[0][0] === "O" && winningCondition[0][1] === "O" && winningCondition[0][2] === "O") {
             display.innerHTML = "";
             display.innerHTML = "player O's win!";
+            background.classList.add("win");
+
         } else {
 
         }
@@ -192,9 +216,13 @@ function getTheWinner(index) {
         if (winningCondition[1][0] === "X" && winningCondition[1][1] === "X" && winningCondition[1][2] === "X") {
             display.innerHTML = "";
             display.innerHTML = "player X's win!";
+            background.classList.add("win");
+
         } else if (winningCondition[1][0] === "O" && winningCondition[1][1] === "O" && winningCondition[1][2] === "O") {
             display.innerHTML = "";
             display.innerHTML = "player O's win!";
+            background.classList.add("win");
+
         } else {
 
         }
@@ -207,9 +235,13 @@ function getTheWinner(index) {
         if (winningCondition[2][0] === "X" && winningCondition[2][1] === "X" && winningCondition[2][2] === "X") {
             display.innerHTML = "";
             display.innerHTML = "player X's win!";
+            background.classList.add("win");
+
         } else if (winningCondition[2][0] === "O" && winningCondition[2][1] === "O" && winningCondition[2][2] === "O") {
             display.innerHTML = "";
             display.innerHTML = "player O's win!";
+            background.classList.add("win");
+
         } else {
 
         }
@@ -222,9 +254,13 @@ function getTheWinner(index) {
         if (winningCondition[3][0] === "X" && winningCondition[3][1] === "X" && winningCondition[3][2] === "X") {
             display.innerHTML = "";
             display.innerHTML = "player X's win!";
+            background.classList.add("win");
+
         } else if (winningCondition[3][0] === "O" && winningCondition[3][1] === "O" && winningCondition[3][2] === "O") {
             display.innerHTML = "";
             display.innerHTML = "player O's win!";
+            background.classList.add("win");
+
         } else {
 
         }
@@ -237,9 +273,13 @@ function getTheWinner(index) {
         if (winningCondition[4][0] === "X" && winningCondition[4][1] === "X" && winningCondition[4][2] === "X") {
             display.innerHTML = "";
             display.innerHTML = "player X's win!";
+            background.classList.add("win");
+
         } else if (winningCondition[4][0] === "O" && winningCondition[4][1] === "O" && winningCondition[4][2] === "O") {
             display.innerHTML = "";
             display.innerHTML = "player O's win!";
+            background.classList.add("win");
+
         } else {
 
         }
@@ -254,9 +294,13 @@ function getTheWinner(index) {
         if (winningCondition[5][0] === "X" && winningCondition[5][1] === "X" && winningCondition[5][2] === "X") {
             display.innerHTML = "";
             display.innerHTML = "player X's win!";
+            background.classList.add("win");
+
         } else if (winningCondition[5][0] === "O" && winningCondition[5][1] === "O" && winningCondition[5][2] === "O") {
             display.innerHTML = "";
             display.innerHTML = "player O's win!";
+            background.classList.add("win");
+
         } else {
 
         }
@@ -267,9 +311,13 @@ function getTheWinner(index) {
         if (winningCondition[6][0] === "X" && winningCondition[6][1] === "X" && winningCondition[6][2] === "X") {
             display.innerHTML = "";
             display.innerHTML = "player X's win!";
+            background.classList.add("win");
+
         } else if (winningCondition[6][0] === "O" && winningCondition[6][1] === "O" && winningCondition[6][2] === "O") {
             display.innerHTML = "";
             display.innerHTML = "player O's win!";
+            background.classList.add("win");
+
         } else {
 
         }
@@ -284,9 +332,13 @@ function getTheWinner(index) {
         if (winningCondition[7][0] === "X" && winningCondition[7][1] === "X" && winningCondition[7][2] === "X") {
             display.innerHTML = "";
             display.innerHTML = "player X's win!";
+            background.classList.add("win");
+
         } else if (winningCondition[7][0] === "O" && winningCondition[7][1] === "O" && winningCondition[7][2] === "O") {
             display.innerHTML = "";
             display.innerHTML = "player O's win!";
+            background.classList.add("win");
+
         } else {
 
         }
@@ -297,5 +349,7 @@ function getTheWinner(index) {
     // }
 
 }
+
+
 // }
 // getTheWinner();

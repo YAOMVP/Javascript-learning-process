@@ -82,3 +82,32 @@
     border-radius: 30px;
     cursor: pointer;
 }
+
+.win {
+    background-color: rgb(73, 107, 107);
+    height: 100vh;
+    animation: win .5s;
+    animation-iteration-count: 3;
+}
+
+@keyframes win {
+    0% {
+        transform: rotate(10deg);
+    }
+    25% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(10deg);
+    }
+}
+
+.cursor {
+    cursor: not-allowed;
+}
