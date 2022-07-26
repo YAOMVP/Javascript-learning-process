@@ -20,7 +20,7 @@ let winningCondition = [
 let clickNumerber = 0;
 
 
-// let winningConditionIndex = [];
+// let winningConditionIndex = [  ];
 
 //😊 startGame function:check all of the tile is empty or not, if all is clear then the user can start the game.
 function startGame(index) {
