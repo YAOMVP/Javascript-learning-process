@@ -19,8 +19,7 @@ function shakeImags() {
 
 function startGame() {
     isStarted
-    initializeGmae();
-
+    initializeGame();
 
 
 }
