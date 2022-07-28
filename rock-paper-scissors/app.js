@@ -10,49 +10,85 @@ let refresh = document.querySelector(".refresh");
 let num;
 let isStarted = false;
 
+
+function shakeImags() {
+    for (let j = 0; j < imgs.length; j++) {
+        imgs[j].classList.add("liShake");
+    }
+}
+
+function startGame() {
+    isStarted
+    initializeGmae();
+
+
+
+}
+
+function initializeGame() {
+
+}
+if (isStarted) {
+
+} else {
+    shakeImags();
+    isStarted = true;
+}
+
+
 for (let i = 0; i < imgs.length; i++) {
     imgs[i].addEventListener("click", function() {
         if (isStarted) {
-            refreshGame();
-        } else {
-            startGame(i);
+
+            userClickGame(i);
             showComputer();
             computer.addEventListener("click", function() {
                 computer.style.display = "none";
-                num = getRandom();
-                img2.setAttribute("src", `./img/${num}.png`);
-                console.log(num);
-                img2.style.visibility = "visible";
+                computerNum();
                 checkWinner(i, num);
-                isStarted = true;
             })
+        } else {
+
         }
     })
 }
 
 
-function startGame(i) {
-    isStarted = true;
 
+function userClickGame(i) {
     // p disappear
     choose.style.visibility = "hidden";
     // All the imgs disappear
     for (let j = 0; j < imgs.length; j++) {
         imgs[j].style.visibility = "hidden";
+        imgs[j].classList.remove("liShake");
+        console.log("array is " + j);
     }
+    //console.log(j);
     //Clicked imgs visible
     img0.setAttribute("src", `./img/${i}.png`);
     console.log(i);
     img0.style.visibility = "visible";
+    isStarted = false;
+}
+
+
+function showComputer() {
+    computer.style.display = "block";
+    img2.style.visibility = "hidden";
+
+
 }
 
 function getRandom() {
     return Math.floor(Math.random() * 3);
 }
 
-function showComputer() {
-    computer.style.display = "block";
-
+function computerNum() {
+    num = getRandom();
+    img2.setAttribute("src", `./img/${num}.png`);
+    console.log(num);
+    img2.style.visibility = "visible";
 }
 
 
@@ -76,13 +112,21 @@ function checkWinner(i, num) {
     } else {
         h1.innerHTML = "DRAW!"
     }
-
+    isStarted = false;
 }
 
-function refreshGame() {
-    refresh.addEventListener("click", function() {
-        location.reload();
 
-    })
-}
-refreshGame();
+refresh.addEventListener("click", function() {
+    choose.style.visibility = "visible";
+    img0.setAttribute("src", "./img/0.png");
+    img1.setAttribute("src", "./img/1.png");
+    img2.setAttribute("src", "./img/2.png");
+    for (let j = 0; j < imgs.length; j++) {
+        imgs[j].style.visibility = "visible";
+    }
+    shakeImags();
+    h1.innerHTML = "Rock-Paper-Scissors Game";
+    computer.style.display = "none";
+    img2.style.visibility = "visible";
+    isStarted = true;
+})
