@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrow function</title>
+</head>
+
+<body>
+    <button id="rock">1</button>
+    <button id="paper">2</button>
+    <button id="scissors">3</button>
+    <script>
+        const greeting = userName => console.log(`Hello ${userName}`); //template literal 
+
+        greeting("Bro");
+
+
+
+        const percent = (x, y) => x / y * 100;
+
+        console.log(`${percent(78,100)}%`);
+
+
+        let grades = [100, 50, 90, 60, 70, 80];
+        grades = grades.sort((a, b) => b - a);
+        grades = grades.forEach(element => console.log(element));
+
+
+        // function descendingSort(a, b) {
+        //     return (b - a);
+        // }
+
+        // function printOutcome(element) {
+        //     console.log(element);
+        // }
+
+
+
+        let array = [1, 2, 3, 4, 5];
+        array.forEach(function(element) {
+            console.log("" + element);
+        })
+        array = array.forEach(element => console.log(element))
+
+        // const btns = document.querySelectorAll("button");
+        // for (let i = 0; i < btns.length; i++) {
+        //     btns[i].addEventListener("click", function(e) {
+        //         words = e.target.id;
+        //     })
+        // }
+
+        // btns = btns.forEach(element => element.addEventListener("click", (e) => {
+        //     words = e.target.id
+        // }))
+    </script>
+</body>
+
+</html>
