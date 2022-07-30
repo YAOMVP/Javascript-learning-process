@@ -3,11 +3,11 @@
     text-align: center;
 }
 
-#gameboard {
+#gameBoard {
     border: 3px solid #100720;
 }
 
-#score {
+#scoreText {
     margin: 50px;
     font-size: 60px;
     font-family: 'Lobster', cursive;
