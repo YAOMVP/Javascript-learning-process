@@ -6,12 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>arrow function</title>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            border: 1px solid red;
+            width: 304px;
+            margin: auto;
+        }
+        
+        .cell {
+            width: 100px;
+            height: 100px;
+            border: 1px solid blue;
+        }
+    </style>
 </head>
 
 <body>
     <button id="rock">1</button>
     <button id="paper">2</button>
     <button id="scissors">3</button>
+
+
+    <div id="container">
+        <div class="cell">1</div>
+        <div class="cell">2</div>
+        <div class="cell">3</div>
+        <div class="cell">4</div>
+        <div class="cell">5</div>
+        <div class="cell">6</div>
+        <div class="cell">7</div>
+        <div class="cell">8</div>
+        <div class="cell">9</div>
+    </div>
     <script>
         const greeting = userName => console.log(`Hello ${userName}`); //template literal 
 
@@ -39,22 +67,22 @@
 
 
 
-        let array = [1, 2, 3, 4, 5];
-        array.forEach(function(element) {
-            console.log("" + element);
-        })
-        array = array.forEach(element => console.log(element))
+        // let array = [1, 2, 3, 4, 5];
+        // array.forEach(function(element) {
+        //     console.log("" + element);
+        // })
+        // array = array.forEach(element => console.log(element))
 
-        // const btns = document.querySelectorAll("button");
-        // for (let i = 0; i < btns.length; i++) {
-        //     btns[i].addEventListener("click", function(e) {
-        //         words = e.target.id;
-        //     })
-        // }
+        const btns = document.querySelectorAll("button");
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function(e) {
+                console.log(e);
+            })
+        }
 
-        // btns = btns.forEach(element => element.addEventListener("click", (e) => {
-        //     words = e.target.id
-        // }))
+        btns.forEach(element => element.addEventListener("click", (e) => {
+            words = e.target.id
+        }))
     </script>
 </body>
 
