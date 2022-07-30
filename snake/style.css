@@ -1,0 +1,34 @@
+#gameContainer {
+    position: relative;
+    text-align: center;
+}
+
+#gameboard {
+    border: 3px solid #100720;
+}
+
+#score {
+    margin: 50px;
+    font-size: 60px;
+    font-family: 'Lobster', cursive;
+}
+
+#startBtn,
+#endBtn {
+    font-family: 'Lobster', cursive;
+    font-size: 36px;
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    color: #231955;
+    background-color: #B7D3DF;
+    cursor: pointer;
+}
+
+#endBtn {
+    display: none;
+    position: absolute;
+    bottom: 0px;
+    right: 550px;
+}
