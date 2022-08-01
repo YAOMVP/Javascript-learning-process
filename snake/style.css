@@ -14,7 +14,7 @@
 }
 
 #startBtn,
-#endBtn {
+#resetBtn {
     font-family: 'Lobster', cursive;
     font-size: 36px;
     width: 150px;
@@ -26,8 +26,8 @@
     cursor: pointer;
 }
 
-#endBtn {
-    display: none;
+#resetBtn {
+    /* display: none; */
     position: absolute;
     bottom: 0px;
     right: 550px;
