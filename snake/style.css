@@ -27,8 +27,8 @@
 }
 
 #resetBtn {
-    /* display: none; */
+    display: none;
     position: absolute;
-    bottom: 0px;
-    right: 550px;
+    bottom: -100px;
+    right: 866px;
 }
