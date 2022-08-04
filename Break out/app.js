@@ -1,16 +1,18 @@
+// canvas variables
 const breakOut = document.querySelector("#breakOut");
 const ctx = breakOut.getContext("2d");
-const breakOutWeight = breakOut.width;
-const breakOutHeight = breakOut.height;
+const breakOutWidth = breakOut.width; //400
+const breakOutHeight = breakOut.height; //500
 
-function drawBlock() {
-    ctx.fillStyle = "#81CACF";
-    ctx.fillRect(150, 200, 100, 50) //(x-Axis,y-Axis, and blcokWidth, blockHeight);
-}
-drawBlock();
+// paddle variables
+const paddleWidth = 100;
+const paddleHeight = 20;
+const paddleMarginBottom = 50;
 
-function drawRect(x, y) {
-    ctx.fillStyle = "red";
-    ctx.fillRect(x, y, 50, 50);
+const paddle = {
+    x: breakOutWidth / 2 - paddleWidth / 2,
+    y: breakOutHeight - paddleMarginBottom - paddleHeight,
+    width: paddleWidth,
+    height: paddleHeight,
+    dx: 5 //
 }
-drawRect(150, 200);
