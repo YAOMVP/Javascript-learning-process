@@ -5,7 +5,7 @@ const breakOutWidth = breakOut.width; //400
 const breakOutHeight = breakOut.height; //500
 
 
-// paddle variables
+// paddle variables:
 const paddleWidth = 100;
 const paddleHeight = 20;
 const paddleMarginBottom = 50;
