@@ -10,7 +10,7 @@ const paddleWidth = 100;
 const paddleHeight = 20;
 const paddleMarginBottom = 50;
 
-//paddle
+//paddle:
 const paddle = {
     x: breakOutWidth / 2 - paddleWidth / 2,
     y: breakOutHeight - paddleMarginBottom - paddleHeight,
