@@ -62,13 +62,23 @@ function keyEnter(e) {
 }
 
 
+//Move the paddle and do not let paddle out of bounds.
+function movePaddle() {
+    if (leftArrow && paddle.x > 0) {
+        paddle.x = paddle.x - paddle.dx; //paddle.x -=paddle.dx;
+    } else if (rightArrow && paddle.x + paddle.width < breakOutWidth) {
+        paddle.x = paddle.x + paddle.dx; //paddle.x +=paddle.dx;
+    }
+};
+
+
+
 function drawPaddle() {
     ctx.fillStyle = "#607EAA";
     ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
     ctx.lineWidth = 3; //border of the paddle
     ctx.strokeStyle = "#1C3879";
     ctx.strokeRect(paddle.x, paddle.y, paddle.width, paddle.height);
-
 };
 
 
@@ -87,18 +97,10 @@ function drawItem() {
     drawBall();
 }
 
-//Move the paddle and do not let paddle out of bounds.
-function movePaddle() {
-    if (leftArrow && paddle.x > 0) {
-        paddle.x = paddle.x - paddle.dx; //paddle.x -=paddle.dx;
-    } else if (rightArrow && paddle.x + paddle.width < breakOutWidth) {
-        paddle.x = paddle.x + paddle.dx; //paddle.x +=paddle.dx;
-    }
-};
 
 function moveBall() {
     ball.x = ball.x + ball.dx; //dx:3
-    ball.y = ball.y + ball.dy; //dy；-3
+    ball.y = ball.y + ball.dy; //dy:-3
 
 }
 
@@ -107,6 +109,7 @@ function movementUpdate() {
     movePaddle();
     moveBall();
     ballWallCollision();
+    ballPaddleCollision();
 };
 
 // Ball and wall collision detection
@@ -120,6 +123,21 @@ function ballWallCollision() {
         resetBall();
     }
 };
+
+//Ball and paddle collision:
+function ballPaddleCollision() {
+    if (ball.x > paddle.x && ball.x < paddle.x + paddle.width && ball.y > paddle.y && ball.y < paddle.y + paddle.height) {
+        let collidePoint = ball.x - (paddle.x + paddle.width / 2); //得到-paddle.width/2   0  还有   paddle.width/2; 也就是-1  0  1 
+        collidePoint = collidePoint / (paddle.width / 2);
+        let angle = collidePoint * (Math.PI / 4);
+        // ball.dx =ball.speed*Math.sin(45°)  sin(45°)=0.79;
+        // ball.dy =ball.speed*Math.cos(45°)  cos(45°)=0.79;
+        // 要把ball.dy = -负的 ，这样的话就是往上走不是往下走了;
+        ball.dx = ball.speed * Math.sin(angle);
+        ball.dy = -ball.speed * Math.cos(angle);
+    }
+};
+
 
 
 function resetBall() {
