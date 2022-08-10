@@ -249,7 +249,7 @@ function showGameStatus(text, textX, textY, img, imgX, imgY) {
 };
 
 
-
+// resetBall:
 function resetBall() {
     ball.x = breakOutWidth / 2;
     ball.y = paddle.y - ballRadius;
